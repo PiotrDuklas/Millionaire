@@ -8,7 +8,8 @@ gameRoutes = (app) => {
     const questions = [
         { question: "Co jest stolicą Francji?", answers: ["Londyn", "Bruksela", "Paryż", "Moskwa"], correct: 2 },
         { question: "Który kontynent jest największy?", answers: ["Azja", "Europa", "Afryka", "Ameryka Północna"], correct: 0 },
-        { question: "Ile województw jest w Polsce?", answers: ["49", "16", "10", "13"], correct: 1 }
+        { question: "Ile województw jest w Polsce?", answers: ["49", "16", "10", "13"], correct: 1 },
+        { question: "Z jakiego kraju pochodzi papież Franciszek II?", answers: ["Z Boliwii", "Z Peru", "Z Argentyny", "Z Włoch"], correct: 2 }, { question: "Co oznacza skrót polskiej partii PiS?", answers: ["Prezes i Spółka", "Prawo i Sprawiedliwość", "Prawda i Szacunek", "Polska i Słowacja"], correct: 1 }
     ]
 
 

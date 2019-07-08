@@ -1,6 +1,13 @@
 
+const game = document.querySelector('#game');
+const h3 = document.querySelector('h3');
 
 fillQuestionParts = (data) => {
+    if (data.winner === true) {
+        game.style.display = 'none';
+        h3.innerText = 'BRAWO !!!';
+
+    }
     question.innerText = data.question;
     for (const i in data.answers) {
         const answerPart = document.querySelector(`#answer${parseInt(i) + 1}`);
@@ -16,11 +23,19 @@ showQuestion = () => {
 
 }
 
+const correctAnswerSpan = document.querySelector("#correct");
+
+correctAnswersCounter = (data) => {
+    correctAnswerSpan.innerText = data.correctAnswers;
+    showQuestion()
+}
+
 sendAnswer = (indexAnswer) => {
     fetch(`/answer/${indexAnswer}`, {
         method: 'POST'
     }).then(r => r.json())
-        .then(data => { console.log(data) })
+        .then(data => { correctAnswersCounter(data) })
+
 
 
 }
@@ -28,7 +43,7 @@ sendAnswer = (indexAnswer) => {
 const answerButtons = document.querySelectorAll(".answer");
 for (const answerButton of answerButtons) {
     answerButton.addEventListener("click", (e) => {
-        const indexAnswer = e.target.dataset.answer; console.log(indexAnswer);
+        const indexAnswer = e.target.dataset.answer;;
         sendAnswer(indexAnswer)
     })
 }
